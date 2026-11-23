@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+scikit-learn>=1.4
+# Optional, for the "semantic" method (downloads ~80 MB model on first use):
+# sentence-transformers>=2.7
+# Dev:
+pytest>=8.0
+httpx>=0.27
