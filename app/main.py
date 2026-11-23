@@ -2,14 +2,13 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from typing import Literal
 
 from . import similarity
 
 app = FastAPI(title="Text Similarity Checker")
-STATIC = Path(__file__).resolve().parent.parent / "static"
+ROOT = Path(__file__).resolve().parent.parent
 
 Method = Literal["tfidf", "semantic"]
 
@@ -50,9 +49,6 @@ def rank(req: RankRequest):
     return {"method": req.method, "results": results}
 
 
-app.mount("/static", StaticFiles(directory=STATIC), name="static")
-
-
 @app.get("/")
 def index():
-    return FileResponse(STATIC / "index.html")
+    return FileResponse(ROOT / "index.html")

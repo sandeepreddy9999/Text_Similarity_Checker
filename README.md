@@ -94,13 +94,16 @@ similarity-checker/
 ├── app/
 │   ├── main.py          # FastAPI routes and request validation
 │   └── similarity.py    # TF-IDF and semantic scoring logic
-├── static/
-│   └── index.html       # Frontend (HTML, CSS, JS in one file)
+├── index.html           # Frontend (HTML, CSS, JS in one file)
 ├── tests/
 │   └── test_api.py      # pytest API tests
 ├── requirements.txt
 └── .gitignore
 ```
+
+## GitHub Pages
+
+`index.html` sits in the repo root so GitHub Pages can host it. With no backend available, the page falls back to a TF-IDF scorer that runs in the browser (semantic mode needs the Python app). Scores can differ slightly from the Python version because the stop-word lists differ.
 
 ## Tests
 
